@@ -1,3 +1,4 @@
-# RubyProjects
-Assorted Ruby Stuff that doesn't need a dedicated repo.
-The directorys can be seen as a repo.
+# PTools
+A Ruby program for numerous uses, such as currently:
+-Bulk-Hashing
+-Hashcracking

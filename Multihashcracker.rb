@@ -14,16 +14,18 @@ print "Hashtype: "
 Mode = gets.chomp
 else 
 Mode = "MD5"
-hashes = ARGV[0]
+hashes = ARGV
+puts hashes
 end
 
 counter = 0
     case Mode
     when "MD5"
         puts "Starting MD5 Cracker"
+        sleep(1)
         while true do
           tryhash = Digest::MD5.hexdigest(counter.to_s)
-            if (hashes[0] == tryhash)
+            if (hashes[0].to_s == tryhash.to_s)
               puts "Match for #{hashes[0]} found! #{counter}"
               matchfound = true
             end
@@ -34,7 +36,11 @@ counter = 0
            #puts "ArrDel"
            matchfound = false
         end
-        #exit if hashes.empty?
-        #puts "#{hashes[0]} #{counter}"
+        exit if hashes.empty?
+        #puts "#{hashes[0]} #{counter} "
         end
     end
+
+
+
+

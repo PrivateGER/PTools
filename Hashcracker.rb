@@ -11,13 +11,14 @@ unless ARGV.empty?
     mode = ARGV[0].to_s
     target = ARGV[1].to_s
     salt = ARGV[2].to_s
-else 
-    salt = "" 
+else  
     print "Hashtype: "
     mode = gets.chomp
     print "Insert Hash: "
     target = gets.chomp
     target.downcase!
+    print "Insert Salt (optional): "
+    salt = gets.chomp
 end
 case mode
 when "MD5"
@@ -75,9 +76,9 @@ when "SHA1"
         if (sha1hash.to_s == target.to_s)
             finish = Time.now
             puts "Match found! #{sha1hash} equals #{i}." 
-	          if salt != ""
-              puts "Salt is #{salt}. "
-	          end
+	    if salt != ""
+               puts "Salt is #{salt}. "
+	    end
             puts "Time taken: #{-(start - finish)} secs"
             break
         end
@@ -107,8 +108,8 @@ when "SHA256"
             finish = Time.now
             puts "Match found! #{sha256hash} equals #{i}."         	                           
             if salt != ""
-              puts "Salt is #{salt}. "
-	          end
+               puts "Salt is #{salt}. "
+	    end
             puts "Time taken: #{-(start - finish)} secs"
             break
         end
@@ -194,17 +195,18 @@ when "RIPEMD-160"
     i = 0
     start = Time.now
     while true
-        rmd160hash = Digest::RMD160.hexdigest(i.to_s)
+        rmd160hash = Digest::RMD160.hexdigest(i.to_s + salt) 
         puts "#{rmd160hash} #{i}"
-        if (rmd160hash.to_s == target.to_s + salt)
+        if (rmd160hash.to_s == target.to_s)
             finish = Time.now
             puts "Match found! #{rmd160hash} equals #{i}."
             if salt != ""
-              #puts "Salt is #{salt}."
-	          end
+              puts "Salt is #{salt}."
+	    end
             puts "Time taken: #{-(start - finish)} secs"
             break
         end
+        sleep(1)
         i += 1
     end
 end

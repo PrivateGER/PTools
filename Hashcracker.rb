@@ -206,14 +206,13 @@ when "RIPEMD-160"
             puts "Time taken: #{-(start - finish)} secs"
             break
         end
-        sleep(1)
         i += 1
     end
 end
 if ARGV.empty?
     print "Press ENTER to return..."
     gets
-    #load 'PTools.rb'
+    load 'PTools.rb'
 else 
     exit
 end

@@ -8,9 +8,11 @@ puts "Multi-purpose numeric Hashcracker v1.0"
 puts "Built with Ruby v.2.2.2"
 puts "Currently supported hashes: MD5, SHA1, SHA256, SHA384, SHA512, RIPEMD-160"
 unless ARGV.empty?
-    mode = ARGV[0]
-    target = ARGV[1]
-else
+    mode = ARGV[0].to_s
+    target = ARGV[1].to_s
+    salt = ARGV[2].to_s
+else 
+    salt = "" 
     print "Hashtype: "
     mode = gets.chomp
     print "Insert Hash: "
@@ -28,6 +30,7 @@ when "MD5"
         gets
         load "PTools.rb"
     end
+    puts salt
     
     puts "#{target} inserted, starting MD5 cracker..."
     puts "Stop with CTRL+C."
@@ -35,11 +38,15 @@ when "MD5"
     i = 0
     start = Time.now
     while true
-        md5hash = Digest::MD5.hexdigest(i.to_s)
+        md5hash = Digest::MD5.hexdigest(i.to_s + salt)
         puts "#{md5hash} #{i}"
         if (md5hash.to_s == target.to_s)
             finish = Time.now
-            puts "Match found! #{md5hash} equals #{i}. Time taken: #{-(start - finish)} secs"
+            print "Match found! #{md5hash} equals #{i}. "
+            if salt != ""
+              puts "Salt is #{salt}. "
+	          end
+            puts "Time taken: #{-(start - finish)} secs"
             sleep(2)
             break
         end
@@ -63,11 +70,15 @@ when "SHA1"
     i = 0
     start = Time.now
     while true
-        sha1hash = Digest::SHA1.hexdigest(i.to_s)
+        sha1hash = Digest::SHA1.hexdigest(i.to_s + salt)
         puts "#{sha1hash} #{i}"
         if (sha1hash.to_s == target.to_s)
             finish = Time.now
-            puts "Match found! #{sha1hash} equals #{i}. Time taken: #{-(start - finish)} secs"
+            puts "Match found! #{sha1hash} equals #{i}." 
+	          if salt != ""
+              puts "Salt is #{salt}. "
+	          end
+            puts "Time taken: #{-(start - finish)} secs"
             break
         end
         i += 1
@@ -90,11 +101,15 @@ when "SHA256"
     i = 0
     start = Time.now
     while true
-        sha256hash = Digest::SHA256.hexdigest(i.to_s)
+        sha256hash = Digest::SHA256.hexdigest(i.to_s + salt)
         puts "#{sha256hash} #{i}"
         if (sha256hash.to_s == target.to_s)
             finish = Time.now
-            puts "Match found! #{sha256hash} equals #{i}. Time taken: #{-(start - finish)} secs"
+            puts "Match found! #{sha256hash} equals #{i}."         	                           
+            if salt != ""
+              puts "Salt is #{salt}. "
+	          end
+            puts "Time taken: #{-(start - finish)} secs"
             break
         end
         i += 1
@@ -117,11 +132,15 @@ when "SHA512"
     i = 0
     start = Time.now
     while true
-        sha512hash = Digest::SHA512.hexdigest(i.to_s)
+        sha512hash = Digest::SHA512.hexdigest(i.to_s + salt)
         puts "#{sha512hash} #{i}"
         if (sha512hash.to_s == target.to_s)
             finish = Time.now
-            puts "Match found! #{sha512hash} equals #{i}. Time taken: #{-(start - finish)} secs"
+            puts "Match found! #{sha512hash} equals #{i}."
+            if salt != ""
+              puts "Salt is #{salt}."
+	          end
+	          puts "Time taken: #{-(start - finish)} secs"
             break
         end
         i += 1
@@ -144,11 +163,15 @@ when "SHA384"
     i = 0
     start = Time.now
     while true
-        sha384hash = Digest::SHA384.hexdigest(i.to_s)
+        sha384hash = Digest::SHA384.hexdigest(i.to_s + salt)
         puts "#{sha384hash} #{i}"
         if (sha384hash.to_s == target.to_s)
             finish = Time.now
-            puts "Match found! #{sha384hash} equals #{i}. Time taken: #{-(start - finish)} secs"
+            puts "Match found! #{sha384hash} equals #{i}."
+            until salt == ""
+              puts salt
+	          end
+            puts "Time taken: #{-(start - finish)} secs"            
             break
         end
         i += 1
@@ -173,9 +196,13 @@ when "RIPEMD-160"
     while true
         rmd160hash = Digest::RMD160.hexdigest(i.to_s)
         puts "#{rmd160hash} #{i}"
-        if (rmd160hash.to_s == target.to_s)
+        if (rmd160hash.to_s == target.to_s + salt)
             finish = Time.now
-            puts "Match found! #{rmd160hash} equals #{i}. Time taken: #{-(start - finish)} secs"
+            puts "Match found! #{rmd160hash} equals #{i}."
+            if salt != ""
+              #puts "Salt is #{salt}."
+	          end
+            puts "Time taken: #{-(start - finish)} secs"
             break
         end
         i += 1
@@ -184,7 +211,7 @@ end
 if ARGV.empty?
     print "Press ENTER to return..."
     gets
-    load 'PTools.rb'
+    #load 'PTools.rb'
 else 
     exit
 end

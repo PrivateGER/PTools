@@ -8,7 +8,7 @@ puts "4 - View logs of Multihashcracker\n"
 puts "5 - Base64 Encryptor/Decryptor for files\n"
 puts "6 - SHA512 Checksum Generator\n"
 puts "7 - Update PTools\n"
-
+puts "8 - HTTP DoS\n"
 puts "9 - Exit PTools\n"
 print "Enter a number: "
 mode = gets.chomp
@@ -27,6 +27,8 @@ when "6"
     load 'SHA512Checksum.rb'
 when "7"
     load 'update.rb'
+when "8"
+    load 'DOS.rb'
 when "9"
     exit
 else

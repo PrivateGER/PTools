@@ -5,7 +5,7 @@ puts "1 - Bulk-Hash\n"
 puts "2 - Hashcracker\n"
 puts "3 - Multi-Hashcracker\n"
 puts "4 - View logs of Multihashcracker\n"
-puts "5 - Base64 Encryptor/Decryptor for files"
+puts "5 - Base64 Encryptor/Decryptor for files\n"
 print "Enter a number: "
 mode = gets.chomp
 case mode 

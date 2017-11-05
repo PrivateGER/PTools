@@ -9,6 +9,7 @@ puts "5 - Base64 Encryptor/Decryptor for files\n"
 puts "6 - Checksum Generator\n"
 puts "7 - Update PTools\n"
 puts "8 - HTTP DoS\n"
+puts "9 - SSH-Key Generator\n"
 puts "99 - Exit PTools\n"
 print "Enter a number: "
 mode = gets.chomp
@@ -29,6 +30,10 @@ when "7"
     load 'update.rb'
 when "8"
     load 'DOS.rb'
+when "9"
+    load 'SSHKeyGenerator.rb'
+when "9"
+    load 'SSHKeyGenerator.rb'
 when "99"
     exit
 else

@@ -1,6 +1,6 @@
 require 'digest'
 system 'clear' or 'cls'
-puts "SHA512 Checksum Generator"
+puts "Checksum Generator"
 print "Filename: "
 filename = gets.chomp
 filecontent = File.read(filename)

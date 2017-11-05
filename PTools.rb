@@ -6,10 +6,10 @@ puts "2 - Hashcracker\n"
 puts "3 - Multi-Hashcracker\n"
 puts "4 - View logs of Multihashcracker\n"
 puts "5 - Base64 Encryptor/Decryptor for files\n"
-puts "6 - SHA512 Checksum Generator\n"
+puts "6 - Checksum Generator\n"
 puts "7 - Update PTools\n"
 puts "8 - HTTP DoS\n"
-puts "9 - Exit PTools\n"
+puts "99 - Exit PTools\n"
 print "Enter a number: "
 mode = gets.chomp
 case mode 
@@ -24,12 +24,12 @@ when "4"
 when "5"
     load 'Base64Encdec.rb'
 when "6"
-    load 'SHA512Checksum.rb'
+    load 'ChecksumGenerator.rb'
 when "7"
     load 'update.rb'
 when "8"
     load 'DOS.rb'
-when "9"
+when "99"
     exit
 else
     load 'PTools.rb'

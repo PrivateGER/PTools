@@ -1,8 +1,16 @@
 # PTools
-A Ruby program for numerous uses, such as currently:
+A Ruby program for numerous functions, such as currently:
 
 -Bulk-Hashing
 
 -Hashcracking
 
--Multitasking-Hashcracker
+-Multitasking-Hashcracking
+
+-Base64 File En/Decoding
+
+-SHA512 Checksum Generator
+
+-HTTP DoS Tool
+
+-Fully automatic updater

@@ -12,7 +12,7 @@ counter = 0
 while true
 Net::HTTP.get(host, '/index.html')
 counter += 1
-$stdout.write "\r#{counter} Requests sent".green;
+$stdout.write "\r[*] #{counter} Requests sent".green;
 $stdout.flush;
 =begin
 trap "SIGINT" do

@@ -1,6 +1,7 @@
+require 'colorize'
 system "clear" or system "cls"
 puts "©PrivateGER"
-puts "\nPTools v1.0"
+puts "\nPTools v1.0".green
 puts "1 - Bulk-Hash\n"
 puts "2 - Hashcracker\n"
 puts "3 - Multi-Hashcracker\n"
@@ -9,8 +10,8 @@ puts "5 - Base64 Encryptor/Decryptor for files\n"
 puts "6 - Checksum Generator\n"
 puts "7 - HTTP DoS\n"
 puts "8 - SSH-Key Generator\n"
-puts "98 - Update PTools.rb\n"
-puts "99 - Exit PTools\n"
+puts "98 - Update PTools\n"
+puts "99 - Exit PTools\n".light_red
 print "Enter a number: "
 mode = gets.chomp
 case mode 

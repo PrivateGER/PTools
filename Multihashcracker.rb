@@ -48,7 +48,7 @@ logfile = File.open("Cracked.txt","a+")
 counter = 0
         puts "Starting Cracker..."
         sleep(1)
-        puts "Working...".light_red
+        puts "[*] Working...".light_red
         while true do
                case Mode
                when "MD5"

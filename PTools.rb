@@ -1,6 +1,6 @@
 require 'colorize'
 system "clear" or system "cls"
-puts "©PrivateGER"
+puts "©PrivateGER".green
 puts "\nPTools v1.0".green
 puts "1 - Bulk-Hash\n"
 puts "2 - Hashcracker\n"

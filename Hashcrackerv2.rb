@@ -27,7 +27,7 @@ end
 end
 
 def verify(algo, input) #Verifys hashes by their length and returns true if they are correct
-case algo.downcase #downcases algo argument since hashes are case-insensitive anyways
+case algo.downcase #downcases algo argument since hex hashes are case-insensitive anyways
 when "md5"
     if input.downcase.to_s.length == 32 #checks argument length and returns true or false
         return true
@@ -92,7 +92,7 @@ currenthash = hash(mode,i) #calls the hash(algo, input) method and assigns the r
 if currenthash.to_s == hashinput.to_s
     finish = Time.now #gets current time
     puts "\nMatch found! #{hashinput} equals #{i}.".green
-    puts "Time taken: #{-(start - finish)} secs".green #subtracts start time from finish time and turns it into a positive integer
+    puts "Time taken: #{-(start - finish)} secs".green  #subtracts start time from finish time and turns it into a positive integer
     break
 end
 unless mode.downcase == "sha512" #will not display if hashtype is SHA512
@@ -102,6 +102,6 @@ end
 i += 1
 end
 
-puts "Press ENTER to continue...."
+puts "Press ENTER to continue....".green
 gets #waits for enter key
 load 'PTools.rb' #load main suite

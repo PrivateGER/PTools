@@ -2,6 +2,7 @@
 #Built by PrivateGER
 #Licensed with MIT
 
+#This is a mess. I'll clean it up one day.
 require 'digest'
 system "clear" or system "cls"
 puts "Multi-purpose numeric Hashcracker v1.0"
@@ -40,13 +41,15 @@ when "MD5"
     start = Time.now
     while true
         md5hash = Digest::MD5.hexdigest(i.to_s + salt)
-        $stdout.print "#{md5hash} #{i}"
+        $stdout.write "\r[*] #{md5hash} #{i}".green
+        $stdout.flush;
         if (md5hash.to_s == target.to_s)
             finish = Time.now
-            print "Match found! #{md5hash} equals #{i}. "
+            puts ""
+            print "Match found! #{md5hash} equals #{i}. ".green
             if salt != ""
-              puts "Salt is #{salt}. "
-	          end
+                puts "Salt is #{salt}. "
+	            end
             puts "Time taken: #{-(start - finish)} secs"
             sleep(2)
             break
@@ -72,13 +75,15 @@ when "SHA1"
     start = Time.now
     while true
         sha1hash = Digest::SHA1.hexdigest(i.to_s + salt)
-        puts "#{sha1hash} #{i}"
+        $stdout.write "\r[*] #{sha1hash} #{i}".green
+        $stdout.flush;
         if (sha1hash.to_s == target.to_s)
+            puts ""
             finish = Time.now
-            puts "Match found! #{sha1hash} equals #{i}." 
-	    if salt != ""
-               puts "Salt is #{salt}. "
-	    end
+            puts "Match found! #{sha1hash} equals #{i}.".green
+	        if salt != ""
+                puts "Salt is #{salt}. "
+	        end
             puts "Time taken: #{-(start - finish)} secs"
             break
         end
@@ -86,7 +91,6 @@ when "SHA1"
     end
 
 when "SHA256"
-
     if target.length == 64
         puts "Valid SHA256 Hash"
     else
@@ -103,13 +107,15 @@ when "SHA256"
     start = Time.now
     while true
         sha256hash = Digest::SHA256.hexdigest(i.to_s + salt)
-        puts "#{sha256hash} #{i}"
+        $stdout.write "\r[*] #{sha256hash} #{i}".green
+        $stdout.flush;
         if (sha256hash.to_s == target.to_s)
+            puts ""
             finish = Time.now
-            puts "Match found! #{sha256hash} equals #{i}."         	                           
+            puts "Match found! #{sha256hash} equals #{i}.".green         	                           
             if salt != ""
-               puts "Salt is #{salt}. "
-	    end
+                puts "Salt is #{salt}. "
+	        end
             puts "Time taken: #{-(start - finish)} secs"
             break
         end
@@ -133,15 +139,18 @@ when "SHA512"
     i = 0
     start = Time.now
     while true
-        sha512hash = Digest::SHA512.hexdigest(i.to_s + salt)
-        puts "#{sha512hash} #{i}"
+        sha512hash = Digest::SHA512.hexdigest(i.to_s + salt.to_s)
+        $stdout.write "\r[*] #{sha512hash} #{i}".green
+        $stdout.flush;
+        $stdout.flush;
         if (sha512hash.to_s == target.to_s)
+            puts ""
             finish = Time.now
-            puts "Match found! #{sha512hash} equals #{i}."
+            puts "Match found! #{sha512hash} equals #{i}.".green         	                           
             if salt != ""
-              puts "Salt is #{salt}."
-	          end
-	          puts "Time taken: #{-(start - finish)} secs"
+                puts "Salt is #{salt}. "
+	        end
+            puts "Time taken: #{-(start - finish)} secs"
             break
         end
         i += 1
@@ -165,13 +174,15 @@ when "SHA384"
     start = Time.now
     while true
         sha384hash = Digest::SHA384.hexdigest(i.to_s + salt)
-        puts "#{sha384hash} #{i}"
+        $stdout.write "\r[*] #{sha384hash} #{i}".green
+        $stdout.flush;
         if (sha384hash.to_s == target.to_s)
+            puts ""
             finish = Time.now
             puts "Match found! #{sha384hash} equals #{i}."
             until salt == ""
-              puts salt
-	          end
+                puts salt
+	            end
             puts "Time taken: #{-(start - finish)} secs"            
             break
         end
@@ -196,12 +207,14 @@ when "RIPEMD-160"
     start = Time.now
     while true
         rmd160hash = Digest::RMD160.hexdigest(i.to_s + salt) 
-        puts "#{rmd160hash} #{i}"
+        $stdout.write "\r[*] #{rmd160hash} #{i}".green
+        $stdout.flush;
         if (rmd160hash.to_s == target.to_s)
+            puts ""
             finish = Time.now
             puts "Match found! #{rmd160hash} equals #{i}."
             if salt != ""
-              puts "Salt is #{salt}."
+                puts "Salt is #{salt}."
 	    end
             puts "Time taken: #{-(start - finish)} secs"
             break

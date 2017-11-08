@@ -9,45 +9,45 @@ print "Mode: "
 
 #Setting up error handler because usage might be now
 def error(err)
-   puts err.light_red
-   puts "Press ENTER to continue...".light_red
-   gets
-   load 'PTools.rb'
+    puts err.light_red
+    puts "Press ENTER to continue...".light_red
+    gets
+    load 'PTools.rb'
 end
 
 mode = gets.chomp
 case mode
 when "1"
-print "Filename: "
-filename = gets.chomp
-error("Empty input!") if filename.empty? #check if input is "" or nil
-error("File doesn't exist!") unless File.exist?(filename) #check if file exists
-content = File.read(filename)
-print "New filename: "
-newname = gets.chomp
-encryptedcontent = Base64.encode64(content) #encode file content
-nfh = File.open(newname,"w+") #create or erase file and open for writing
-nfh.puts(encryptedcontent) #put into file
-nfh.close() #close file
-puts "Press ENTER to continue...".green
-gets
-load 'PTools.rb'
+    print "Filename: "
+    filename = gets.chomp
+    error("Empty input!") if filename.empty? #check if input is "" or nil
+    error("File doesn't exist!") unless File.exist?(filename) #check if file exists
+    content = File.read(filename)
+    print "New filename: "
+    newname = gets.chomp
+    encryptedcontent = Base64.encode64(content) #encode file content
+    nfh = File.open(newname,"w+") #create or erase file and open for writing
+    nfh.puts(encryptedcontent) #put into file
+    nfh.close() #close file
+    puts "Press ENTER to continue...".green
+    gets
+    load 'PTools.rb'
 when "2"
-print "Filename: "
-filename = gets.chomp
-error("Empty input!") if filename.empty? #multiple input validations
-error("File doesn't exist!") unless File.exist?(filename)
-content = File.read(filename)
-print "New filename: "
-newname = gets.chomp
-error("Empty input!") if newname.empty?
-decryptedcontent = Base64.decode64(content) #decode file content
-nfh = File.open(newname,"w+") #erase or create file and open for writing
-nfh.puts(decryptedcontent) #write file
-nfh.close() #close file
-puts "Press ENTER to continue...".green
-gets
-load 'PTools.rb'
+    print "Filename: "
+    filename = gets.chomp
+    error("Empty input!") if filename.empty? #multiple input validations
+    error("File doesn't exist!") unless File.exist?(filename)
+    content = File.read(filename)
+    print "New filename: "
+    newname = gets.chomp
+    error("Empty input!") if newname.empty?
+    decryptedcontent = Base64.decode64(content) #decode file content
+    nfh = File.open(newname,"w+") #erase or create file and open for writing
+    nfh.puts(decryptedcontent) #write file
+    nfh.close() #close file
+    puts "Press ENTER to continue...".green
+    gets
+    load 'PTools.rb'
 else 
-error("Invalid Option!")
+    error("Invalid Option!")
 end

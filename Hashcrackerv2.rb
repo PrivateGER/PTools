@@ -1,4 +1,4 @@
-system "cls" or "clear"
+system "cls" or system "clear"
 require 'colorize'
 require 'digest'
 

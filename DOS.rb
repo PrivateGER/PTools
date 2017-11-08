@@ -14,12 +14,4 @@ Net::HTTP.get(host, '/index.html')
 counter += 1
 $stdout.write "\r[*] #{counter} Requests sent".green;
 $stdout.flush;
-=begin
-trap "SIGINT" do
-   puts "Stopping..."
-   puts "Press ENTER to continue..."
-   gets
-   load 'PTools.rb'
-end
-=end
 end

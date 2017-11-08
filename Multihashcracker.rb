@@ -50,35 +50,34 @@ counter = 0
         sleep(1)
         puts "Working...".light_red
         while true do
-               case Mode
-               when "MD5"
-                 tryhash = Digest::MD5.hexdigest(counter.to_s)
-               when "SHA1"
-                 tryhash = Digest::SHA1.hexdigest(counter.to_s)
-               when "SHA256"
-                 tryhash = Digest::SHA256.hexdigest(counter.to_s)
-               when "SHA384"
-                 tryhash = Digest::SHA384.hexdigest(counter.to_s) 
-               when "SHA512" 
-                 tryhash = Digest::SHA512.hexdigest(counter.to_s)
-               when "RIPEMD-160"
-                 tryhash = Digest::RMD160.hexdigest(counter.to_s)
-               else
-                 puts "Invalid mode!"
-                 puts "Press ENTER to continue..."
-                 gets.chomp
-                 load 'PTools.rb'
-               end
+                case Mode
+                when "MD5"
+                  tryhash = Digest::MD5.hexdigest(counter.to_s)
+                when "SHA1"
+                  tryhash = Digest::SHA1.hexdigest(counter.to_s)
+                when "SHA256"
+                  tryhash = Digest::SHA256.hexdigest(counter.to_s)
+                when "SHA384"
+                  tryhash = Digest::SHA384.hexdigest(counter.to_s) 
+                when "SHA512" 
+                  tryhash = Digest::SHA512.hexdigest(counter.to_s)
+                when "RIPEMD-160"
+                  tryhash = Digest::RMD160.hexdigest(counter.to_s)
+                else
+                  puts "Invalid mode!"
+                  puts "Press ENTER to continue..."
+                  gets.chomp
+                  load 'PTools.rb'
+                end
               if (hashes[0].to_s == tryhash.to_s)
               puts "Match for #{hashes[0]} found! #{counter}".green
               matchfound = true
             end
         if matchfound == true
-           hashes.delete_at(0)
-           #puts "ArrDel"
-           logfile.puts("#{tryhash} #{counter} \n")
-           matchfound = false
-           counter = 0
+            hashes.delete_at(0)
+            logfile.puts("#{tryhash} #{counter} \n")
+            matchfound = false
+            counter = 0
         end
         logfile.close if hashes.empty?
         break if hashes.empty?

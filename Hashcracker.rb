@@ -1,4 +1,4 @@
-#Multi-Puropse Hashcracker
+#Multi-Purpose Hashcracker
 #Built by PrivateGER
 #Licensed with MIT
 
@@ -40,7 +40,7 @@ when "MD5"
     start = Time.now
     while true
         md5hash = Digest::MD5.hexdigest(i.to_s + salt)
-        puts "#{md5hash} #{i}"
+        $stdout.print "#{md5hash} #{i}"
         if (md5hash.to_s == target.to_s)
             finish = Time.now
             print "Match found! #{md5hash} equals #{i}. "

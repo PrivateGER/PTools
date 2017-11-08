@@ -1,5 +1,5 @@
 system "clear" or system "cls"
-puts "Updating...."
+puts "[*] Updating...."
 if (system('git pull') == true)
   puts "Update successful!"
 else

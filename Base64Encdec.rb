@@ -5,6 +5,7 @@ system "clear" or system "cls"
 puts "Encryptor/Decryptor for all file types".green
 puts "1 - Encrypt file\n"
 puts "2 - Decrypt file\n"
+puts "3 - En/Decrypt string"
 print "Mode: "
 
 #Setting up error handler because usage might be now
@@ -48,21 +49,23 @@ when "2"
     puts "Press ENTER to continue...".green
     gets
     load 'PTools.rb'
-when "3"
+when "3" #opens secondary submenu
     puts "1 - Encrypt string" 
     puts "2 - Decrypt string" 
     print "Mode: " 
     mode = gets.chomp 
-    if mode == "1"
+    error ("Empty Input!") if mode.empty?
+    error("Invalid Input!") if mode != "1" || "2"
+    if mode == "1" #evalutes secondary menu input
         print "Enter string: " 
         string = gets.chomp 
-	      error("Empty input!") if string.empty?
+	    error("Empty input!") if string.empty?
         puts "Result: #{Base64.encode64(string)}"
         puts "Press ENTER to continue...".green
         gets
         load 'PTools.rb'
-	   end
-     if mode == "2"
+	end
+    if mode == "2"
         print "Enter string: " 
         string = gets.chomp 
         error("Empty input!") if string.empty?
@@ -70,7 +73,7 @@ when "3"
         puts "Press ENTER to continue...".green
         gets
         load 'PTools.rb'
-     end
+    end
 else 
     error("Invalid Option!")
 end

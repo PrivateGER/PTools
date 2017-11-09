@@ -55,12 +55,13 @@ when "3" #opens secondary submenu
     print "Mode: " 
     mode = gets.chomp 
     error ("Empty Input!") if mode.empty?
-    error("Invalid Input!") if mode != "1" || "2"
     if mode == "1" #evalutes secondary menu input
         print "Enter string: " 
         string = gets.chomp 
-	    error("Empty input!") if string.empty?
-        puts "Result: #{Base64.encode64(string)}"
+	error("Empty input!") if string.empty?
+	decoded = Base64.encode64(string)
+	puts "\n"
+        print "Result: " + decoded
         puts "Press ENTER to continue...".green
         gets
         load 'PTools.rb'
@@ -69,11 +70,12 @@ when "3" #opens secondary submenu
         print "Enter string: " 
         string = gets.chomp 
         error("Empty input!") if string.empty?
-        puts "Result: #{Base64.decode64(string)}"
+        puts "\nResult: #{Base64.decode64(string)}"
         puts "Press ENTER to continue...".green
         gets
         load 'PTools.rb'
     end
+    error("Invalid Option!")
 else 
     error("Invalid Option!")
 end

@@ -3,7 +3,7 @@ system "clear" or system "cls"
 puts "©PrivateGER".green
 puts "\nPTools v1.0".green
 puts "1 - Bulk-Hash\n"
-puts "2 - Hashcracker v2 (NEW) \n"
+puts "2 - Hashcracker v2\n"
 puts "3 - Multi-Hashcracker\n"
 puts "4 - View logs of Multihashcracker\n"
 puts "5 - Base64 Encryptor/Decryptor for files or text\n"

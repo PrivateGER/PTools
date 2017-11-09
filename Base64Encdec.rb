@@ -48,6 +48,29 @@ when "2"
     puts "Press ENTER to continue...".green
     gets
     load 'PTools.rb'
+when "3"
+    puts "1 - Encrypt string" 
+    puts "2 - Decrypt string" 
+    print "Mode: " 
+    mode = gets.chomp 
+    if mode == "1"
+        print "Enter string: " 
+        string = gets.chomp 
+	      error("Empty input!") if string.empty?
+        puts "Result: #{Base64.encode64(string)}"
+        puts "Press ENTER to continue...".green
+        gets
+        load 'PTools.rb'
+	   end
+     if mode == "2"
+        print "Enter string: " 
+        string = gets.chomp 
+        error("Empty input!") if string.empty?
+        puts "Result: #{Base64.decode64(string)}"
+        puts "Press ENTER to continue...".green
+        gets
+        load 'PTools.rb'
+     end
 else 
     error("Invalid Option!")
 end

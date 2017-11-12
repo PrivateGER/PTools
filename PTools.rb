@@ -10,7 +10,8 @@ puts "5 - Base64 Encryptor/Decryptor for files or text\n"
 puts "6 - Checksum Generator\n"
 puts "7 - HTTP DoS\n"
 puts "8 - SSH-Key Generator\n"
-puts "98 - Update PTools\n"
+puts "9 - HTTP Server-Manager\n"
+puts "98 - Update PTools".green
 puts "99 - Exit PTools\n".light_red
 print "Enter a number: "
 mode = gets.chomp
@@ -31,6 +32,8 @@ when "7"
     load 'DOS.rb'
 when "8"
     load 'SSHKeyGenerator.rb'
+when "9"
+    load 'HTTPServer.rb'
 when "98"
     load 'update.rb'
 when "99"
@@ -38,4 +41,4 @@ when "99"
 else
     load 'PTools.rb'
 end
-#\||/_
+#Y'all know what this means. \||/_

@@ -40,6 +40,7 @@ when "10"
 when "98"
     load 'update.rb'
 when "99"
+    system "cls" or system "clear"
     exit
 else
     load 'PTools.rb'

@@ -11,6 +11,7 @@ puts "6 - Checksum Generator\n"
 puts "7 - HTTP DoS\n"
 puts "8 - SSH-Key Generator\n"
 puts "9 - HTTP Server-Manager\n"
+puts "10 - Website Cloner\n"
 puts "98 - Update PTools".green
 puts "99 - Exit PTools\n".light_red
 print "Enter a number: "
@@ -34,6 +35,8 @@ when "8"
     load 'SSHKeyGenerator.rb'
 when "9"
     load 'HTTPServer.rb'
+when "10"
+    load 'WebsiteCloner.rb'
 when "98"
     load 'update.rb'
 when "99"

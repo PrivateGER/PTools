@@ -10,28 +10,28 @@ mode = gets.chomp
 def endprg()
     puts "Press ENTER to continue..."
     gets
-    load 'PTools.rb'   
+    load 'PTools.rb'
 end
 case mode
 when "1"
-    system "sudo service apache2 status" or system "sudo systemctl status apache2"
-    endprg()
+    system "sudo service apache2 status" or system "sudo systemctl status apache2" #trys two commands since systemctl isnt supported on some distros and vice versa
+    endprg() #calls endprg
 when "2"
     puts "Installing/Updating Server...".green
     system "sudo apt-get install apache2"
     puts "Done! Use Option 3 and 4 to start/stop the server.".green
-    endprg()
-when "3"
+    endprg() #calls endprg
+when "3" 
     puts "Starting Server...".green
     system "sudo service apache2 start"
     puts "Done!"
-    endprg()
+    endprg() #calls endprg
 when "4"
     puts "Stopping Server..."
     system "sudo service apache2 stop"
     puts "Done!"
-    endprg()
+    endprg() #calls endprg
 else
-    puts "Invalid Input!".light_red
-    endprg()
+    puts "Invalid Input!".light_red #first outputs an errorcode
+    endprg() #calls endprg
 end 

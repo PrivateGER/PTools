@@ -14,7 +14,7 @@ def endprg()
 end
 case mode
 when "1"
-    system "sudo systemctl status apache2"
+    system "sudo service apache2 status" or system "sudo systemctl status apache2"
     endprg()
 when "2"
     puts "Installing/Updating Server...".green
